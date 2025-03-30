@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EmailController;
-// use App\Http\Controllers\TaskController;
+use App\Http\Controllers\FeedbackController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/health', function () { return "Healthy"; });
@@ -25,4 +25,6 @@ Route::prefix("email")->group(function () {
     Route::post('/verify-email', [EmailController::class, 'verifyEmail']);
   });
 
-// Route::resource('/tasks', TaskController::class)->middleware('auth:sanctum');
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::apiResource('/feedbacks', FeedbackController::class);
+});

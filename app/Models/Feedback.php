@@ -42,4 +42,9 @@ class Feedback extends Model
             self::ACKNOWLEDGED => 'boolean',
         ];
     }
+
+    public function isAlreadyAcknowledged(): bool
+    {
+        return $this->acknowledged === true;
+    }
 }

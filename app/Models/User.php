@@ -67,17 +67,11 @@ class User extends Authenticatable implements CanResetPassword
     public const VERIFICATION_TOKEN = "verification_token";
     public const ROLE = "role";
 
-
-    public function tasks()
-    {
-        return $this->hasMany(Task::class);
-    }
-
     public function feedbacks(){
         return $this->hasMany(Feedback::class);
     }
 
     public function isAdmin(){
-        return $this->role === RoleEnums::ADMIN->value;
+        return $this->role->value === RoleEnums::ADMIN->value;
     }
 }
