@@ -5,7 +5,11 @@ use App\Http\Controllers\EmailController;
 use App\Http\Controllers\FeedbackController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/health', function () { return "Healthy"; });
+Route::get('/health', function () {
+    return response()->json([
+        "message" => "healthy"
+    ]);
+});
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
