@@ -15,6 +15,7 @@ class FeedbackService {
     {
         $data = $request->validated();
         $data[Feedback::USER_ID] = Auth::id();
+        $data[Feedback::ACKNOWLEDGED] = false;
         return new FeedbackUserResource(Feedback::create($data));
     }
 

@@ -15,8 +15,14 @@ class FeedbackUserResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            ...parent::toArray($request),
-            'viewed_by' => 'user'
+            "id" => $this->id,
+            "userId" => $this->user_id,
+            "rating" => $this->rating,
+            "feedbackContent" => $this->feedback_content,
+            "acknowledged" => $this->acknowledged,
+            "acknowledgeContent" => $this->acknowledge_content,
+            "createdAt" => $this->created_at,
+            "updatedAt" => $this->updated_at,
         ];
     }
 }
