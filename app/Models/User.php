@@ -7,7 +7,6 @@ namespace App\Models;
 use App\Enums\RoleEnums;
 use App\Models\Attributes\HasDefaultConcreteFields;
 use App\Models\Feedback;
-use App\Models\Task;
 use Illuminate\Contracts\Auth\CanResetPassword;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -58,7 +57,6 @@ class User extends Authenticatable implements CanResetPassword
     }
 
     public const TABLE_NAME = "users";
-
     public const NAME = "name";
     public const EMAIL = "email";
     public const PASSWORD = "password";

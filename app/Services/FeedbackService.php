@@ -36,8 +36,7 @@ class FeedbackService {
 
     public function all()
     {
-        $currentUser = Auth::user();
-        if($currentUser->isAdmin()){
+        if(Auth::user()->isAdmin()){
             return FeedbackAdminResource::collection(Feedback::all());
         } else {
             return FeedbackUserResource::collection(Feedback::where(Feedback::USER_ID, Auth::id())->get());
